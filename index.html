@@ -1,0 +1,308 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>Inheritance of prototypes and classes</section>
+
+				<section>
+					Inheritance is simple
+					<p class="fragment fade-up"><img src="./assets/1.PNG" alt="1"></p>
+					<p class="fragment fade-up"><img src="./assets/1.1.PNG" alt="1.1"></p>
+				</section>
+
+				<section>
+					<h3>Why do we need it</h3>
+					<p class="fragment fade-up">Imagine, that we need to create many objects of the same type</p>
+				</section>
+
+				<section>
+					<section>
+						<p>Of course, we can do it like this:</p>
+						<img src="./assets/2.PNG" alt="2" style="height: 50%; width: 50%;">
+					</section>
+
+					<section>
+						But it looks ugly and bulky
+					
+						
+					</section>
+
+					<section>We can fix this by creating a prototype for all these objects</section>
+
+					<section>	
+							<p>Like this:</p>
+							<img src="./assets/3.PNG" alt="3">
+					</section>
+
+					<section>We can create as many objects as we want. Access their properties and call their methods</section>
+
+					<section>
+						<img src="./assets/4.0.PNG" alt="4.0">
+						<p class="fragment fade-up"><img src="./assets/4.PNG" alt="4"></p>
+						<p class="fragment fade-up"><img src="./assets/4.1.PNG" alt="4.1"></p>
+					</section>
+				</section>
+
+				<section>
+					<section>.isPrototypeOf()</section>
+					<section>
+						<img src="./assets/5.PNG" alt="5">
+						<p class="fragment fade-up"><img src="./assets/5.1.PNG" alt="5.1"></p>
+					</section>
+				</section>
+
+				<section>
+					<section>What about child classes</section>
+					<section>
+						<p>It's very easy to implement</p>
+						<img src="./assets/6.PNG" alt="6">
+					</section>
+					<section>
+						<img src="./assets/7.PNG" alt="7">
+						<p class="fragment fade-up"><img src="./assets/7.1.PNG" alt="7.1"></p>
+					</section>
+					<section>
+						<p>Let's add one more method</p>
+						<p class="fragment fade-up"><img src="./assets/8.PNG" alt="8"></p>
+						<p class="fragment fade-up"><img src="./assets/8.1.PNG" alt="8.1"></p>
+					</section>
+					<section>
+						<p>Also we have access to the properties and methods of the parent class</p>
+						<p class="fragment fade-up"><img src="./assets/9.PNG" alt="9"></p>
+						<p class="fragment fade-up"><img src="./assets/9.1.PNG" alt="9.1"></p>
+					</section>
+				</section>
+
+				<section>
+					<section>Constructor and "new"</section>
+					<section>
+						<p>Constructors call with a capital letter</p>
+						<p class="fragment fade-up"><img src="./assets/10.PNG" alt="10"></p>
+						<p class="fragment fade-up"><img src="./assets/10.1.PNG" alt="10.1"></p>
+					</section>
+					<section>
+						<p>Each function has a "prototype" property</p>
+						<p class="fragment fade-up"><img src="./assets/11.PNG" alt="11"></p>
+						<p class="fragment fade-up"><img src="./assets/11.1.PNG" alt="11.1"></p>
+					</section>
+					<section>
+						<p>We can add any properties and methods and they will be accessible by the whole instance of the class</p>
+					</section>
+					<section>
+						<img src="./assets/12.PNG" alt="12" style="height: 65%; width: 65%;">
+						<p class="fragment fade-up"><img src="./assets/12.1.PNG" alt="12.1"></p>
+					</section>
+				</section>
+
+				<section>
+					<p>All objects that are created using the constructor are assigned the constructor property</p>
+					<p class="fragment fade-up"><img src="./assets/13.PNG" alt="13"></p>
+					<p class="fragment fade-up"><img src="./assets/13.1.PNG" alt="13.1"></p>
+				</section>
+
+				<section>
+					<section>instanceof</section>
+					<section>
+						<img src="./assets/14.PNG" alt="14">
+						<p class="fragment fade-up"><img src="./assets/14.1.PNG" alt="14.1"></p>
+					</section>
+				</section>
+
+				<section>
+					<section>__proto__</section>
+					<section>
+						<img src="./assets/15.PNG" alt="15">
+						<p class="fragment fade-up"><img src="./assets/15.1.PNG" alt="15.1"></p>
+					</section>
+					<section>
+						<p>But...</p>
+						<p class="fragment fade-up">This property is supported differently by browsers</p>
+						<p class="fragment fade-up">And in general...</p>
+						<p class="fragment fade-up" style="color: red;">better never use it</p>	
+					</section>
+				</section>
+
+				<section>
+					<section>Once again about child classes</section>
+					<section>
+						<p>It's have same realization</p>
+						<p class="fragment fade-up">We also use the "create" method</p>
+						<p class="fragment fade-up"><img src="./assets/16.PNG" alt="16"></p>
+					</section>
+				</section>
+
+				<section>
+					<section>Now we can create an object of this class</section>
+					<section>
+						<img src="./assets/17.PNG" alt="17">
+						<p class="fragment fade-up"><img src="./assets/17.1.PNG" alt="17.1"></p>
+					</section>
+					<section>
+						<p>instanceof in the object chain</p>
+						<p class="fragment fade-up"><img src="./assets/18.PNG" alt="18"></p>
+						<p class="fragment fade-up"><img src="./assets/18.1.PNG" alt="18.1"></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p>Almost all objects inherit their properties from the Object.prototype object</p>
+						<p class="fragment fade-up"><img src="./assets/19.PNG" alt="19"></p>
+						<p class="fragment fade-up"><img src="./assets/19.1.PNG" alt="19.1"></p>
+					</section>
+					<section>
+						<p>We can override the method on the prototype class</p>
+						<p class="fragment fade-up"><img src="./assets/20.PNG" alt="20"></p>
+						<p class="fragment fade-up"><img src="./assets/20.1.PNG" alt="20.1"></p>
+					</section>
+				</section>
+
+				<section>
+					<p>Functions are also objects. Therefore, they also inherit methods from Object.prototype</p>
+					<p class="fragment fade-up"><img src="./assets/21.PNG" alt="21"></p>
+					<p class="fragment fade-up"><img src="./assets/21.1.PNG" alt="21.1"></p>
+				</section>
+
+				<section>
+					<section>Javascript Object Class Attribute</section>
+					<section>
+						<h6>When we call the toString () method - the second word is the class of the object that cannot be changed. The toString () method is the only way to get an object class</h6>
+						<p class="fragment fade-up"><img src="./assets/22.PNG" alt="22" style="height: 50%; width: 50%;"></p>
+						<p class="fragment fade-up"><img src="./assets/22.1.PNG" alt="22.1" style="height: 50%; width: 50%;"></p>
+					</section>
+					<section>
+						<p>We can create a small function, which will return an object class</p>
+						<p class="fragment fade-up"><img src="./assets/23.PNG" alt="23" style="height: 50%; width: 50%;"></p>
+						<p class="fragment fade-up"><img src="./assets/23.1.PNG" alt="23.1" style="height: 50%; width: 50%;"></p>
+					</section>
+				</section>
+
+				<section>
+					<h2 style="color: yellow;">ES6 Classes</h2>
+				</section>
+
+				<section>
+					<section>Syntax</section>
+					<section>
+						<p>Basic moments:</p>
+						<ul>
+							<li class="fragment fade-up">Capital class must be capitalized</li>
+							<li class="fragment fade-up">There is a special "constructor" method</li>
+							<li class="fragment fade-up">We can implement methods</li>
+							<li class="fragment fade-up">Ability to implement static methods / variables</li>
+						</ul>
+					</section>
+					<section>
+						<img src="./assets/24.PNG" alt="24" style="height: 45%; width: 45%;">
+						<p class="fragment fade-up"><img src="./assets/24.1.PNG" alt="24.1" style="height: 45%; width: 45%;"></p>
+					</section>
+					<section>Method Implementation</section>
+					<section>
+							<img src="./assets/25.PNG" alt="25" style="height: 45%; width: 45%;">
+							<p class="fragment fade-up"><img src="./assets/25.1.PNG" alt="25.1" style="height: 45%; width: 45%;"></p>
+					</section>
+					<section>
+							<p>Static method</p>
+							<p class="fragment fade-up"><img src="./assets/26.PNG" alt="26"></p>
+							<p class="fragment fade-up"><img src="./assets/26.1.PNG" alt="26.1"></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<p>Why...</p>
+						<p class="fragment fade-up">Why do we need it</p>
+					</section>
+					<section>
+						<p>We can arrange for full inheritance!</p>
+						<img src="https://media2.giphy.com/media/5VKbvrjxpVJCM/giphy.gif?cid=790b76117973acc36a0c87df379dfa3bd7cc000b722cb216&rid=giphy.gif" alt="Wow gif">
+					</section>
+				</section>
+
+				<section>
+					<section>How does inheritance work?</section>
+					<section>
+							<p>Inheritance occurs using the key word "extends"</p>
+							<p class="fragment fade-up"><img src="./assets/27.PNG" alt="27" style="height: 50%; width: 50%;"></p>
+							<p class="fragment fade-up"><img src="./assets/27.1.PNG" alt="27.1" style="height: 50%; width: 50%;"></p>
+					</section>
+					<section>
+						<p>Inheritance chain looks like this</p>
+						<p class="fragment fade-up"><img src="./assets/27.2.PNG" alt="27.2"></p>
+					</section>
+					<section>
+						<p>What if we want add one more field for our new class</p>
+					</section>
+					<section>
+							<img src="./assets/28.PNG" alt="28" style="height: 40%; width: 40%;">
+							<p class="fragment fade-up"><img src="./assets/28.1.PNG" alt="28.1" style="height: 45%; width: 45%;"></p>
+					</section>
+					<section>
+						<p>We can rewrite parent methods and also access them</p>
+						<p class="fragment fade-up"><img src="./assets/29.PNG" alt="29" ></p>
+						<p class="fragment fade-up"><img src="./assets/29.1.PNG" alt="29.1"></p>
+					</section>
+				</section>
+
+				<section>
+					<section>Getters & Setters (get/set)</section>
+					<section>
+						<p>Get</p>
+						<p class="fragment fade-up"><img src="./assets/30.PNG" alt="30" ></p>
+						<p class="fragment fade-up"><img src="./assets/30.1.PNG" alt="30.1"></p>
+					</section>
+					<section>
+						<p>Set</p>
+						<p class="fragment fade-up"><img src="./assets/31.PNG" alt="31" ></p>
+						<p class="fragment fade-up"><img src="./assets/31.1.PNG" alt="31.1"></p>
+					</section>
+				</section>
+
+				<section>
+						That's all <br>
+						Thanks for attention <br>
+						<img src="https://media2.giphy.com/media/RllWDpMjRmzChtG8MU/giphy.gif?cid=790b76118c822c10187565d798bca630056af69e600838a3&rid=giphy.gif" alt="thanks">
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
